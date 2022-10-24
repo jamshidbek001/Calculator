@@ -1,20 +1,57 @@
 ﻿using System;
+using CALCULATOR.Classes;
 
-Console.Write("Enter your name: ");
-string myName = Console.ReadLine();
-string greeting = $"Hello {myName}";
-Console.WriteLine(greeting);
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Security security = new Security();
+        Calculatr calculatr = new Calculatr();
 
-int keschaAge = 2;
+        security.CheckPassword();
+        calculatr.GetInputs();
 
-Console.Write("Enter your age: ");
-string age = Console.ReadLine();
-int myAge = Convert.ToInt32(age);
-int sum = myAge - keschaAge;
-Console.WriteLine($"Yosh orasidagi tafovut {myAge - keschaAge} ga teng");
 
-Console.WriteLine($"You are older than Kescha: {sum > 0}");
-Console.WriteLine($"You are younger than Kescha: {sum < 0}");
-Console.WriteLine($"You are older or equal than Kescha: {sum >= 0}");
-Console.WriteLine($"You are younger than Kescha: {sum <= 0}");
-Console.WriteLine($"You are equal or older than Kescha: {sum != 0}");
+
+
+        string message =
+                    !(calculatr.IsFirstNumberPositive())
+                    ? "Fist number is not positive"
+                    : "First number is not negative";
+
+        Console.WriteLine(message);
+
+        calculatr.CompareInputs();
+
+        string result = calculatr.Calculate();
+        Console.WriteLine(result);
+
+        calculatr.PrintEventNumbers();
+        calculatr.PrintMultiplicationTable();
+
+
+
+
+
+
+        // string result = operation switch
+        // {
+        //     "+" => $"{fNumber} + {sNumber} = {fNumber + sNumber}",
+        //     "-" => $"{fNumber} - {sNumber} = {fNumber - sNumber}",
+        //     "/" => $"{fNumber} / {sNumber} = {fNumber / sNumber}",
+        //     "*" => $"{fNumber} * {sNumber} = {fNumber * sNumber}",
+        //     "%" => $"{fNumber} % {sNumber} = {fNumber % sNumber}",
+        //     _ => "Operation not found"
+        // };
+
+        // Console.WriteLine(result);
+
+
+
+
+
+
+
+
+    }
+}
